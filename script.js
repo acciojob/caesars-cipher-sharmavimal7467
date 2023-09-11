@@ -36,9 +36,18 @@ function rot13(encodedStr) {
 	// Your Result goes here
   // Only change code below this line
 for(let i = 0;i<encodedStr.length;i++){
-	console.log(encodedStr[i]);
+	// console.log(encodedStr[i]);
+	let asciiNum = encodedStr[i].charCodeAt();//charCodeAt() convert to ascii.
+	if(asciiNum>=65 && asciiNum<=77){
+		decodedArr += String.fromCharCode(asciiNum+13);//fromCharCode convert to alphabet
+	}
+	else if(asciiNum>=78 && asciiNum<=90){
+		decodedArr += String.fromCharCode(asciiNum-13);
+	}
+	else{
+		decodedArr += encodedStr[i];
+	}
 }
-	
   return decodedArr; //return decodedArr
 }
 
